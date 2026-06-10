@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aberturas de Chapa | Diseño y Precisión</title>
+    <title>La Herrería La Nueva | Aberturas de Chapa</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
 
@@ -24,10 +24,9 @@
             padding: 2rem;
             position: relative;
             overflow-x: hidden;
-            /* Simulación de la grilla técnica o plano */
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
@@ -41,10 +40,13 @@
             margin: 0 auto;
             font-size: 0.85rem;
             letter-spacing: 1px;
+            z-index: 10;
         }
 
         .logo-nav {
-            font-weight: 700;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav a {
@@ -70,103 +72,112 @@
             position: relative;
         }
 
-        /* Título Grande */
+        /* Título Grande (Adaptado al nombre nuevo) */
         .hero-title {
-            font-size: clamp(4rem, 8vw, 9rem);
+            font-size: clamp(3rem, 7.5vw, 7.5rem);
             font-weight: 900;
-            line-height: 0.8;
+            line-height: 0.85;
             color: #e0e0e0;
             position: absolute;
-            top: 10%;
+            top: 12%;
             left: 0;
             z-index: 1;
+            letter-spacing: -2px;
         }
 
         .tagline-top {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #aaa;
+            letter-spacing: 3px;
+            color: #888;
             position: absolute;
-            top: 5%;
+            top: 6%;
             left: 0;
         }
 
         /* Texto descriptivo (Derecha) */
         .hero-description {
-            max-width: 350px;
-            font-size: 1.1rem;
+            max-width: 360px;
+            font-size: 1.05rem;
             line-height: 1.6;
             color: #ccc;
             position: absolute;
             right: 0;
-            top: 40%;
+            top: 42%;
             z-index: 2;
-            border-left: 2px solid #ff6600; /* Toque industrial */
+            border-left: 2px solid #ff6600; 
             padding-left: 1.5rem;
         }
 
         /* Caja de resalto (Inferior Izquierda) */
         .info-box {
             position: absolute;
-            bottom: 5%;
+            bottom: 3%;
             left: 0;
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             padding: 2rem;
-            width: 320px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 340px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .info-box h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: #fff;
         }
 
         .info-box p {
             font-size: 0.85rem;
             color: #aaa;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* Indicador scroll */
         .scroll-indicator {
             position: absolute;
-            bottom: 5%;
+            bottom: 3%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #888;
+            color: #666;
         }
 
-        /* Badge lateral derecho */
+        /* Badge lateral derecho (Alejado del texto para evitar choques) */
         .side-badge {
             position: absolute;
-            right: 20px;
+            right: -10px;
             top: 50%;
             transform: translateY(-50%) rotate(90deg);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #666;
+            letter-spacing: 4px;
+            color: #555;
             transform-origin: right center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-description {
+                top: 55%;
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 768px) {
             body {
                 background-image: none;
+                padding: 1rem;
             }
             .hero-title {
                 position: relative;
                 top: auto;
                 left: auto;
                 font-size: 3.5rem;
-                margin-top: 2rem;
+                margin-top: 3rem;
             }
             main {
                 flex-direction: column;
@@ -176,11 +187,19 @@
                 position: relative;
                 right: auto;
                 top: auto;
-                margin-top: 2rem;
-                border: none;
-                padding-left: 0;
+                margin-top: 2.5rem;
+                border-left: 2px solid #ff6600;
+                padding-left: 1rem;
             }
             .info-box, .side-badge, .scroll-indicator {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 2rem;
+                width: 100%;
+            }
+            .side-badge, .scroll-indicator {
                 display: none;
             }
         }
@@ -189,7 +208,7 @@
 <body>
 
     <header>
-        <div class="logo-nav">FÁBRICA DE ABERTURAS</div>
+        <div class="logo-nav">La Herrería La Nueva</div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#productos">Productos</a>
@@ -199,20 +218,20 @@
     </header>
 
     <main>
-        <span class="tagline-top">Resistencia y vanguardia</span>
-        <h1 class="hero-title">ACERO &<br>DISEÑO</h1>
+        <span class="tagline-top">Fábrica de Aberturas</span>
+        <h1 class="hero-title">HERRERÍA<br>LA NUEVA</h1>
         
         <div class="hero-description">
-            <p>Aberturas de chapa plegada de máxima durabilidad. Ingeniería, seguridad y terminaciones premium para cada proyecto.</p>
+            <p>Aberturas de chapa plegada de máxima durabilidad. Ingeniería, seguridad y terminaciones premium para cada tipo de obra.</p>
         </div>
 
         <div class="info-box">
-            <h3>Fabricación a medida</h3>
-            <p>Puertas, portones y ventanas diseñados bajo estrictos estándares de calidad industrial y arquitectura moderna.</p>
+            <h3>Producción Industrial</h3>
+            <p>Puertas, portones y marcos diseñados bajo estrictos estándares de precisión, resistencia y arquitectura moderna.</p>
         </div>
 
-        <div class="side-badge">Línea Premium</div>
-        <div class="scroll-indicator">↓ Deslizar para ver más</div>
+        <div class="side-badge">Calidad Garantizada</div>
+        <div class="scroll-indicator">↓ Deslizar para explorar</div>
     </main>
 
 </body>
