@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aberturas de Chapa | Diseño y Precisión</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+            /* Simulación de la grilla técnica o plano */
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Barra de Navegación */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-nav {
+            font-weight: 700;
+        }
+
+        nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Contenedor Principal */
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* Título Grande */
+        .hero-title {
+            font-size: clamp(4rem, 8vw, 9rem);
+            font-weight: 900;
+            line-height: 0.8;
+            color: #e0e0e0;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            z-index: 1;
+        }
+
+        .tagline-top {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            position: absolute;
+            top: 5%;
+            left: 0;
+        }
+
+        /* Texto descriptivo (Derecha) */
+        .hero-description {
+            max-width: 350px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+            position: absolute;
+            right: 0;
+            top: 40%;
+            z-index: 2;
+            border-left: 2px solid #ff6600; /* Toque industrial */
+            padding-left: 1.5rem;
+        }
+
+        /* Caja de resalto (Inferior Izquierda) */
+        .info-box {
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            width: 320px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .info-box p {
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        /* Indicador scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+        }
+
+        /* Badge lateral derecho */
+        .side-badge {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            transform-origin: right center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-image: none;
+            }
+            .hero-title {
+                position: relative;
+                top: auto;
+                left: auto;
+                font-size: 3.5rem;
+                margin-top: 2rem;
+            }
+            main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-description {
+                position: relative;
+                right: auto;
+                top: auto;
+                margin-top: 2rem;
+                border: none;
+                padding-left: 0;
+            }
+            .info-box, .side-badge, .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-nav">FÁBRICA DE ABERTURAS</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <span class="tagline-top">Resistencia y vanguardia</span>
+        <h1 class="hero-title">ACERO &<br>DISEÑO</h1>
+        
+        <div class="hero-description">
+            <p>Aberturas de chapa plegada de máxima durabilidad. Ingeniería, seguridad y terminaciones premium para cada proyecto.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Fabricación a medida</h3>
+            <p>Puertas, portones y ventanas diseñados bajo estrictos estándares de calidad industrial y arquitectura moderna.</p>
+        </div>
+
+        <div class="side-badge">Línea Premium</div>
+        <div class="scroll-indicator">↓ Deslizar para ver más</div>
+    </main>
+
+</body>
+</html>
