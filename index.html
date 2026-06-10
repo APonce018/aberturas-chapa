@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Herrería La Nueva | Aberturas de Chapa</title>
+    <title>La Herrería La Nueva | Fábrica de Aberturas</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         * {
             margin: 0;
@@ -18,20 +22,28 @@
             background-color: #121212;
             color: #f4f4f4;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem;
-            position: relative;
             overflow-x: hidden;
+            /* Grilla técnica de fondo */
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        /* Barra de Navegación */
+        /* Barra de Navegación Fija */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 2rem;
+            z-index: 100;
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,13 +52,14 @@
             margin: 0 auto;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            z-index: 10;
         }
 
         .logo-nav {
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
         }
 
         nav a {
@@ -60,27 +73,31 @@
             color: #fff;
         }
 
-        /* Contenedor Principal */
-        main {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Contenedor de Secciones */
+        .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            flex-grow: 1;
-            position: relative;
+            padding: 0 2rem;
         }
 
-        /* Título Grande (Adaptado al nombre nuevo) */
+        /* --- SECCIÓN INICIO (HERO) --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
         .hero-title {
             font-size: clamp(3rem, 7.5vw, 7.5rem);
             font-weight: 900;
             line-height: 0.85;
             color: #e0e0e0;
             position: absolute;
-            top: 12%;
-            left: 0;
+            top: 25%;
+            left: 2rem;
             z-index: 1;
             letter-spacing: -2px;
         }
@@ -91,32 +108,30 @@
             letter-spacing: 3px;
             color: #888;
             position: absolute;
-            top: 6%;
-            left: 0;
+            top: 18%;
+            left: 2rem;
         }
 
-        /* Texto descriptivo (Derecha) */
         .hero-description {
             max-width: 360px;
             font-size: 1.05rem;
             line-height: 1.6;
             color: #ccc;
             position: absolute;
-            right: 0;
-            top: 42%;
+            right: 2rem;
+            top: 45%;
             z-index: 2;
             border-left: 2px solid #ff6600; 
             padding-left: 1.5rem;
         }
 
-        /* Caja de resalto (Inferior Izquierda) */
         .info-box {
             position: absolute;
-            bottom: 3%;
-            left: 0;
-            background-color: rgba(255, 255, 255, 0.03);
+            bottom: 8%;
+            left: 2rem;
+            background-color: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
-            padding: 2rem;
+            padding: 1.5rem;
             width: 340px;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -125,7 +140,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             color: #fff;
         }
 
@@ -135,22 +150,9 @@
             line-height: 1.5;
         }
 
-        /* Indicador scroll */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #666;
-        }
-
-        /* Badge lateral derecho (Alejado del texto para evitar choques) */
         .side-badge {
             position: absolute;
-            right: -10px;
+            right: 1rem;
             top: 50%;
             transform: translateY(-50%) rotate(90deg);
             font-size: 0.75rem;
@@ -160,47 +162,173 @@
             transform-origin: right center;
         }
 
+        .scroll-indicator {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+        }
+
+        /* --- SECCIÓN PRODUCTOS --- */
+        .products-section {
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(18, 18, 18, 0.5);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-number {
+            font-size: 0.85rem;
+            color: #ff6600;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Grilla de Categorías */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background-color: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            position: relative;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        /* Tablas Técnicas de Especificaciones */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .tech-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-table td {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: #ccc;
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-family: monospace;
+            color: #fff;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .card-footer-note {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 1.5rem;
+            display: block;
+            font-style: italic;
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .hero-description {
                 top: 55%;
                 max-width: 300px;
             }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            body {
-                background-image: none;
-                padding: 1rem;
+            .hero-section {
+                min-height: auto;
+                padding-bottom: 4rem;
             }
             .hero-title {
                 position: relative;
                 top: auto;
                 left: auto;
-                font-size: 3.5rem;
-                margin-top: 3rem;
+                font-size: 3.2rem;
+                margin-top: 4rem;
+                padding: 0;
             }
-            main {
-                flex-direction: column;
-                align-items: flex-start;
+            .tagline-top {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-top: 2rem;
             }
             .hero-description {
                 position: relative;
                 right: auto;
                 top: auto;
                 margin-top: 2.5rem;
-                border-left: 2px solid #ff6600;
                 padding-left: 1rem;
             }
-            .info-box, .side-badge, .scroll-indicator {
+            .info-box {
                 position: relative;
                 bottom: auto;
                 left: auto;
-                right: auto;
                 margin-top: 2rem;
                 width: 100%;
             }
             .side-badge, .scroll-indicator {
                 display: none;
+            }
+            .products-section {
+                padding: 4rem 0;
             }
         }
     </style>
@@ -208,30 +336,198 @@
 <body>
 
     <header>
-        <div class="logo-nav">La Herrería La Nueva</div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#productos">Productos</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+        <div class="header-container">
+            <a href="#inicio" class="logo-nav">La Herrería La Nueva</a>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <span class="tagline-top">Fábrica de Aberturas</span>
-        <h1 class="hero-title">HERRERÍA<br>LA NUEVA</h1>
         
-        <div class="hero-description">
-            <p>Aberturas de chapa plegada de máxima durabilidad. Ingeniería, seguridad y terminaciones premium para cada tipo de obra.</p>
-        </div>
+        <section id="inicio" class="hero-section container">
+            <span class="tagline-top">Fábrica de Aberturas</span>
+            <h1 class="hero-title">HERRERÍA<br>LA NUEVA</h1>
+            
+            <div class="hero-description">
+                <p>Aberturas de chapa plegada de máxima durabilidad. Ingeniería, seguridad y terminaciones premium para cada tipo de obra.</p>
+            </div>
 
-        <div class="info-box">
-            <h3>Producción Industrial</h3>
-            <p>Puertas, portones y marcos diseñados bajo estrictos estándares de precisión, resistencia y arquitectura moderna.</p>
-        </div>
+            <div class="info-box">
+                <h3>Producción Industrial</h3>
+                <p>Puertas, portones y marcos diseñados bajo estrictos estándares de precisión, resistencia y arquitectura moderna.</p>
+            </div>
 
-        <div class="side-badge">Calidad Garantizada</div>
-        <div class="scroll-indicator">↓ Deslizar para explorar</div>
+            <div class="side-badge">Calidad Garantizada</div>
+            <div class="scroll-indicator">↓ Deslizar para explorar</div>
+        </section>
+
+        <section id="productos" class="products-section">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-number">01 / CATÁLOGO</span>
+                    <h2 class="section-title">Nuestras Aberturas</h2>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <span class="product-category">Línea Pesada - Bastonada Horizontal</span>
+                        <h3 class="product-name">Puertas y Portones Rectos</h3>
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Modelo / Tipo</th>
+                                    <th>Medidas</th>
+                                    <th style="text-align: right;">Precio (Base)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Puerta Ciega [cite: 144]</td>
+                                    <td>70 / 80 [cite: 144]</td>
+                                    <td class="price-tag">$190.322,00 [cite: 144]</td>
+                                </tr>
+                                <tr>
+                                    <td>Portada Ciega [cite: 144]</td>
+                                    <td>1200 x 2050 [cite: 144]</td>
+                                    <td class="price-tag">$233.950,26 [cite: 144]</td>
+                                </tr>
+                                <tr>
+                                    <td>Portón Recto Ciego [cite: 144]</td>
+                                    <td>2400 x 2050 [cite: 144]</td>
+                                    <td class="price-tag">$528.043,94 [cite: 144]</td>
+                                </tr>
+                                <tr>
+                                    <td>Puerta 1/2 Vidrio [cite: 144]</td>
+                                    <td>70 / 80 [cite: 144]</td>
+                                    <td class="price-tag">$208.741,86 [cite: 144]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="card-footer-note">* Marco de 10cm y bisagras munición incorporadas[cite: 133, 134].</span>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-category">Línea Liviana - C/ Celosía</span>
+                        <h3 class="product-name">Ventanas Rectas</h3>
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Sistema</th>
+                                    <th>Medidas</th>
+                                    <th style="text-align: right;">Precio (Base)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Corrediza con Reja [cite: 152]</td>
+                                    <td>1000 x 1000 [cite: 152]</td>
+                                    <td class="price-tag">$178.792,89 [cite: 152]</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrediza con Reja [cite: 152]</td>
+                                    <td>1200 x 1000 [cite: 152]</td>
+                                    <td class="price-tag">$197.045,10 [cite: 152]</td>
+                                </tr>
+                                <tr>
+                                    <td>Abrir sin Reja [cite: 152]</td>
+                                    <td>1200 x 1000 [cite: 152]</td>
+                                    <td class="price-tag">$154.241,89 [cite: 152]</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrediza sin Reja [cite: 152]</td>
+                                    <td>1500 x 1000 [cite: 152]</td>
+                                    <td class="price-tag">$194.336,44 [cite: 152]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="card-footer-note">* Incluye contravidrio de aluminio y reja de hierro de 10mm[cite: 151].</span>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-category">Sistemas a Palanca</span>
+                        <h3 class="product-name">Ventiluces e Iluminación</h3>
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Hojas / Tipo</th>
+                                    <th>Medidas</th>
+                                    <th style="text-align: right;">Precio (Base)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ventiluz 1 Hoja [cite: 224, 225]</td>
+                                    <td>400 x 200 [cite: 225]</td>
+                                    <td class="price-tag">$23.636,87 [cite: 225]</td>
+                                </tr>
+                                <tr>
+                                    <td>Ventiluz 1 Hoja [cite: 224, 225]</td>
+                                    <td>600 x 300 [cite: 225]</td>
+                                    <td class="price-tag">$26.070,55 [cite: 225]</td>
+                                </tr>
+                                <tr>
+                                    <td>Ventiluz 2 Hojas [cite: 226, 227]</td>
+                                    <td>1000 x 600 [cite: 227]</td>
+                                    <td class="price-tag">$52.288,84 [cite: 227]</td>
+                                </tr>
+                                <tr>
+                                    <td>Lucera Una Hoja (c/reja) [cite: 212, 214]</td>
+                                    <td>200 x 1000 [cite: 214]</td>
+                                    <td class="price-tag">$39.682,34 [cite: 214]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="card-footer-note">* Soluciones mecánicas de alta precisión para ventilación[cite: 224, 226].</span>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-category">Automatizaciones y Seguridad</span>
+                        <h3 class="product-name">Portones Levadizos</h3>
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Revestimiento</th>
+                                    <th>Medidas</th>
+                                    <th style="text-align: right;">Precio (Base)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Chapa Bastonada (Ciego) [cite: 242, 243]</td>
+                                    <td>2700 x 2100 [cite: 243]</td>
+                                    <td class="price-tag">$900.627,14 [cite: 243]</td>
+                                </tr>
+                                <tr>
+                                    <td>Chapa Bastonada (Ciego) [cite: 242, 243]</td>
+                                    <td>3000 x 2100 [cite: 243]</td>
+                                    <td class="price-tag">$1.075.845,89 [cite: 243]</td>
+                                </tr>
+                                <tr>
+                                    <td>Chapa c/ Vidrio Fijo [cite: 242, 243]</td>
+                                    <td>2700 x 2100 [cite: 243]</td>
+                                    <td class="price-tag">$995.234,16 [cite: 243]</td>
+                                </tr>
+                                <tr>
+                                    <td>Kit para Revestir [cite: 238, 240]</td>
+                                    <td>2700 x 2100 [cite: 240]</td>
+                                    <td class="price-tag">$766.336,04 [cite: 240]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="card-footer-note">* Aptos para revestir en madera o aluminio[cite: 238]. Medidas estándar[cite: 240, 243].</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
 </body>
