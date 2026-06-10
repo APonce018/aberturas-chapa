@@ -23,14 +23,12 @@
             color: #f4f4f4;
             min-height: 100vh;
             overflow-x: hidden;
-            /* Grilla técnica de fondo */
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        /* Barra de Navegación Fija */
         header {
             position: fixed;
             top: 0;
@@ -73,7 +71,6 @@
             color: #fff;
         }
 
-        /* Contenedor de Secciones */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -81,7 +78,7 @@
             padding: 0 2rem;
         }
 
-        /* --- SECCIÓN INICIO (HERO) --- */
+        /* --- SECCIÓN INICIO --- */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -150,18 +147,6 @@
             line-height: 1.5;
         }
 
-        .side-badge {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%) rotate(90deg);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #555;
-            transform-origin: right center;
-        }
-
         .scroll-indicator {
             position: absolute;
             bottom: 5%;
@@ -173,16 +158,15 @@
             color: #666;
         }
 
-        /* --- SECCIÓN PRODUCTOS --- */
+        /* --- SECCIÓN PRODUCTOS (CATÁLOGO DINÁMICO) --- */
         .products-section {
             padding: 6rem 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: rgba(18, 18, 18, 0.5);
+            background-color: rgba(14, 14, 14, 0.7);
         }
 
         .section-header {
-            margin-bottom: 4rem;
-            position: relative;
+            margin-bottom: 3rem;
         }
 
         .section-number {
@@ -201,135 +185,132 @@
             letter-spacing: -1px;
         }
 
-        /* Grilla de Categorías */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 2.5rem;
+        /* Herramientas de Búsqueda y Filtros */
+        .catalog-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .product-card {
-            background-color: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2rem;
+        .search-wrapper {
             position: relative;
-            transition: border-color 0.3s, background-color 0.3s;
+            width: 100%;
         }
 
-        .product-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .product-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #888;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .product-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .search-input {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            font-family: 'Montserrat', sans-serif;
             color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
 
-        /* Tablas Técnicas de Especificaciones */
-        .tech-table {
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6600;
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: #fff;
+            border-color: #fff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .filter-btn.active {
+            border-color: #ff6600;
+            color: #ff6600;
+        }
+
+        /* Tabla de Especificaciones Unificada */
+        .catalog-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        .catalog-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-align: left;
-            margin-top: 1rem;
+            min-width: 600px;
         }
 
-        .tech-table th {
+        .catalog-table th {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #666;
-            padding-bottom: 0.8rem;
+            padding: 1.2rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
-        .tech-table td {
-            padding: 0.8rem 0;
+        .catalog-table td {
+            padding: 1rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             color: #ccc;
         }
 
-        .tech-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .price-tag {
-            font-family: monospace;
+        .catalog-table tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
             color: #fff;
-            font-weight: 700;
-            text-align: right;
         }
 
-        .card-footer-note {
-            font-size: 0.75rem;
+        .tag-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            color: #aaa;
+            border-left: 2px solid #ff6600;
+        }
+
+        .price-cell {
+            font-family: monospace;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .no-results {
+            padding: 3rem;
+            text-align: center;
             color: #666;
-            margin-top: 1.5rem;
-            display: block;
-            font-style: italic;
+            font-size: 1rem;
         }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .hero-description {
-                top: 55%;
-                max-width: 300px;
-            }
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
-            .hero-section {
-                min-height: auto;
-                padding-bottom: 4rem;
-            }
-            .hero-title {
-                position: relative;
-                top: auto;
-                left: auto;
-                font-size: 3.2rem;
-                margin-top: 4rem;
-                padding: 0;
-            }
-            .tagline-top {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-top: 2rem;
-            }
-            .hero-description {
-                position: relative;
-                right: auto;
-                top: auto;
-                margin-top: 2.5rem;
-                padding-left: 1rem;
-            }
-            .info-box {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                margin-top: 2rem;
-                width: 100%;
-            }
-            .side-badge, .scroll-indicator {
-                display: none;
-            }
-            .products-section {
-                padding: 4rem 0;
-            }
+            .hero-section { min-height: auto; padding-bottom: 4rem; }
+            .hero-title { position: relative; top: auto; left: auto; font-size: 3.2rem; margin-top: 4rem; }
+            .tagline-top { position: relative; top: auto; left: auto; margin-top: 2rem; }
+            .hero-description { position: relative; right: auto; top: auto; margin-top: 2.5rem; }
+            .info-box { position: relative; bottom: auto; left: auto; margin-top: 2rem; width: 100%; }
+            .scroll-indicator { display: none; }
         }
     </style>
 </head>
@@ -362,7 +343,6 @@
                 <p>Puertas, portones y marcos diseñados bajo estrictos estándares de precisión, resistencia y arquitectura moderna.</p>
             </div>
 
-            <div class="side-badge">Calidad Garantizada</div>
             <div class="scroll-indicator">↓ Deslizar para explorar</div>
         </section>
 
@@ -370,165 +350,135 @@
             <div class="container">
                 
                 <div class="section-header">
-                    <span class="section-number">01 / CATÁLOGO</span>
-                    <h2 class="section-title">Nuestras Aberturas</h2>
+                    <span class="section-number">01 / PLANILLA TÉCNICA</span>
+                    <h2 class="section-title">Catálogo Completo</h2>
                 </div>
 
-                <div class="products-grid">
-                    
-                    <div class="product-card">
-                        <span class="product-category">Línea Pesada - Bastonada Horizontal</span>
-                        <h3 class="product-name">Puertas y Portones Rectos</h3>
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th>Modelo / Tipo</th>
-                                    <th>Medidas</th>
-                                    <th style="text-align: right;">Precio (Base)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Puerta Ciega [cite: 144]</td>
-                                    <td>70 / 80 [cite: 144]</td>
-                                    <td class="price-tag">$190.322,00 [cite: 144]</td>
-                                </tr>
-                                <tr>
-                                    <td>Portada Ciega [cite: 144]</td>
-                                    <td>1200 x 2050 [cite: 144]</td>
-                                    <td class="price-tag">$233.950,26 [cite: 144]</td>
-                                </tr>
-                                <tr>
-                                    <td>Portón Recto Ciego [cite: 144]</td>
-                                    <td>2400 x 2050 [cite: 144]</td>
-                                    <td class="price-tag">$528.043,94 [cite: 144]</td>
-                                </tr>
-                                <tr>
-                                    <td>Puerta 1/2 Vidrio [cite: 144]</td>
-                                    <td>70 / 80 [cite: 144]</td>
-                                    <td class="price-tag">$208.741,86 [cite: 144]</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <span class="card-footer-note">* Marco de 10cm y bisagras munición incorporadas[cite: 133, 134].</span>
+                <div class="catalog-tools">
+                    <div class="search-wrapper">
+                        <input type="text" id="catalog-search" class="search-input" placeholder="Buscar por modelo, medidas (ej: 2400x2050)...">
                     </div>
-
-                    <div class="product-card">
-                        <span class="product-category">Línea Liviana - C/ Celosía</span>
-                        <h3 class="product-name">Ventanas Rectas</h3>
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th>Sistema</th>
-                                    <th>Medidas</th>
-                                    <th style="text-align: right;">Precio (Base)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Corrediza con Reja [cite: 152]</td>
-                                    <td>1000 x 1000 [cite: 152]</td>
-                                    <td class="price-tag">$178.792,89 [cite: 152]</td>
-                                </tr>
-                                <tr>
-                                    <td>Corrediza con Reja [cite: 152]</td>
-                                    <td>1200 x 1000 [cite: 152]</td>
-                                    <td class="price-tag">$197.045,10 [cite: 152]</td>
-                                </tr>
-                                <tr>
-                                    <td>Abrir sin Reja [cite: 152]</td>
-                                    <td>1200 x 1000 [cite: 152]</td>
-                                    <td class="price-tag">$154.241,89 [cite: 152]</td>
-                                </tr>
-                                <tr>
-                                    <td>Corrediza sin Reja [cite: 152]</td>
-                                    <td>1500 x 1000 [cite: 152]</td>
-                                    <td class="price-tag">$194.336,44 [cite: 152]</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <span class="card-footer-note">* Incluye contravidrio de aluminio y reja de hierro de 10mm[cite: 151].</span>
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">Todos los productos</button>
+                        <button class="filter-btn" data-filter="liviana">Línea Liviana</button>
+                        <button class="filter-btn" data-filter="ventanas">Ventanas</button>
+                        <button class="filter-btn" data-filter="palanca">Sistemas a Palanca</button>
+                        <button class="filter-btn" data-filter="levadizos">Levadizos</button>
                     </div>
-
-                    <div class="product-card">
-                        <span class="product-category">Sistemas a Palanca</span>
-                        <h3 class="product-name">Ventiluces e Iluminación</h3>
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th>Hojas / Tipo</th>
-                                    <th>Medidas</th>
-                                    <th style="text-align: right;">Precio (Base)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ventiluz 1 Hoja [cite: 224, 225]</td>
-                                    <td>400 x 200 [cite: 225]</td>
-                                    <td class="price-tag">$23.636,87 [cite: 225]</td>
-                                </tr>
-                                <tr>
-                                    <td>Ventiluz 1 Hoja [cite: 224, 225]</td>
-                                    <td>600 x 300 [cite: 225]</td>
-                                    <td class="price-tag">$26.070,55 [cite: 225]</td>
-                                </tr>
-                                <tr>
-                                    <td>Ventiluz 2 Hojas [cite: 226, 227]</td>
-                                    <td>1000 x 600 [cite: 227]</td>
-                                    <td class="price-tag">$52.288,84 [cite: 227]</td>
-                                </tr>
-                                <tr>
-                                    <td>Lucera Una Hoja (c/reja) [cite: 212, 214]</td>
-                                    <td>200 x 1000 [cite: 214]</td>
-                                    <td class="price-tag">$39.682,34 [cite: 214]</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <span class="card-footer-note">* Soluciones mecánicas de alta precisión para ventilación[cite: 224, 226].</span>
-                    </div>
-
-                    <div class="product-card">
-                        <span class="product-category">Automatizaciones y Seguridad</span>
-                        <h3 class="product-name">Portones Levadizos</h3>
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th>Revestimiento</th>
-                                    <th>Medidas</th>
-                                    <th style="text-align: right;">Precio (Base)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Chapa Bastonada (Ciego) [cite: 242, 243]</td>
-                                    <td>2700 x 2100 [cite: 243]</td>
-                                    <td class="price-tag">$900.627,14 [cite: 243]</td>
-                                </tr>
-                                <tr>
-                                    <td>Chapa Bastonada (Ciego) [cite: 242, 243]</td>
-                                    <td>3000 x 2100 [cite: 243]</td>
-                                    <td class="price-tag">$1.075.845,89 [cite: 243]</td>
-                                </tr>
-                                <tr>
-                                    <td>Chapa c/ Vidrio Fijo [cite: 242, 243]</td>
-                                    <td>2700 x 2100 [cite: 243]</td>
-                                    <td class="price-tag">$995.234,16 [cite: 243]</td>
-                                </tr>
-                                <tr>
-                                    <td>Kit para Revestir [cite: 238, 240]</td>
-                                    <td>2700 x 2100 [cite: 240]</td>
-                                    <td class="price-tag">$766.336,04 [cite: 240]</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <span class="card-footer-note">* Aptos para revestir en madera o aluminio[cite: 238]. Medidas estándar[cite: 240, 243].</span>
-                    </div>
-
                 </div>
+
+                <div class="catalog-table-wrapper">
+                    <table class="catalog-table">
+                        <thead>
+                            <tr>
+                                <th>Línea / Categoría</th>
+                                <th>Modelo / Especificación</th>
+                                <th>Medidas Estándar</th>
+                                <th>Precio (Base)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalog-body">
+                            </tbody>
+                    </table>
+                    <div id="no-products" class="no-results" style="display: none;">
+                        No se encontraron aberturas que coincidan con la búsqueda.
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
+    <script>
+        // Base de datos real extraída del catálogo original
+        const productsData = [
+            // LÍNEA LIVIANA
+            { category: 'liviana', label: 'Línea Liviana', name: 'Puerta Ciega (Chapa Simple)', size: '70 / 80', price: '$157.901,80' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portada Ciega (Chapa Simple)', size: '1200 x 2050', price: '$254.253,66' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portada Ciega (Chapa Simple)', size: '1600 x 2050', price: '$293.983,34' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portón Recto Ciego', size: '2400 x 2050', price: '$424.393,68' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Puerta 1/4 Vidrio (Reja Caño)', size: '70 / 80', price: '$157.901,80' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portada 1/4 Vidrio (Reja Caño)', size: '1200 x 2050', price: '$254.253,66' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Puerta Vidrio Lateral', size: '70 / 80', price: '$175.132,46' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portada Vidrio Lateral', size: '1200 x 2050', price: '$277.154,36' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portada Vidrio Lateral', size: '1600 x 2050', price: '$330.286,32' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Portón Recto Vidrio Lateral', size: '2400 x 2050', price: '$456.921,62' },
+            { category: 'liviana', label: 'Línea Liviana', name: 'Puerta 1/2 Vidrio', size: '70 / 80', price: '$175.132,46' },
+            
+            // VENTANAS
+            { category: 'ventanas', label: 'Ventanas', name: 'Ventana Corrediza con Reja', size: '1000 x 1000', price: '$178.792,89' },
+            { category: 'ventanas', label: 'Ventanas', name: 'Ventana Corrediza con Reja', size: '1200 x 1000', price: '$197.045,10' },
+            { category: 'ventanas', label: 'Ventanas', name: 'Ventana de Abrir sin Reja', size: '1200 x 1000', price: '$154.241,89' },
+            { category: 'ventanas', label: 'Ventanas', name: 'Ventana Corrediza sin Reja', size: '1500 x 1000', price: '$194.336,44' },
+
+            // SISTEMAS A PALANCA
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Ventiluz Estándar (1 Hoja)', size: '600 x 400', price: '$37.163,51' },
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Ventiluz Amplio (1 Hoja)', size: '1500 x 600', price: '$65.075,04' },
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Ventiluz Máximo (1 Hoja)', size: '1500 x 800', price: '$74.739,85' },
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Sistema Palanca (3 Hojas + 1 Fija)', size: '600 x 1000', price: '$81.020,80' },
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Sistema Palanca (3 Hojas + 1 Fija)', size: '800 x 1000', price: '$81.609,62' },
+            { category: 'palanca', label: 'Sistemas a Palanca', name: 'Sistema Palanca (3 Hojas + 1 Fija)', size: '1000 x 1000', price: '$88.372,94' },
+
+            // LEVADIZOS
+            { category: 'levadizos', label: 'Levadizos', name: 'Kit Levadizo para Revestir (Madera/Alu)', size: '2700 x 2100', price: '$766.336,04' },
+            { category: 'levadizos', label: 'Levadizos', name: 'Kit Levadizo para Revestir (Madera/Alu)', size: '3000 x 2100', price: '$952.274,12' }
+        ];
+
+        const catalogBody = document.getElementById('catalog-body');
+        const noProducts = document.getElementById('no-products');
+        const searchInput = document.getElementById('catalog-search');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        function renderCatalog() {
+            catalogBody.innerHTML = '';
+            
+            const filteredProducts = productsData.filter(product => {
+                const matchesFilter = currentFilter === 'all' || product.category === currentFilter;
+                const matchesSearch = product.name.toLowerCase().includes(currentSearch) || 
+                                      product.size.toLowerCase().includes(currentSearch) ||
+                                      product.label.toLowerCase().includes(currentSearch);
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filteredProducts.length === 0) {
+                noProducts.style.display = 'block';
+            } else {
+                noProducts.style.display = 'none';
+                filteredProducts.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><span class="tag-category">${product.label}</span></td>
+                        <td><strong>${product.name}</strong></td>
+                        <td>${product.size}</td>
+                        <td class="price-cell">${product.price}</td>
+                    `;
+                    catalogBody.appendChild(row);
+                });
+            }
+        }
+
+        // Evento de Búsqueda
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            renderCatalog();
+        });
+
+        // Eventos de Filtros (Tabs)
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                renderCatalog();
+            });
+        });
+
+        // Inicializar la tabla al cargar
+        renderCatalog();
+    </script>
 </body>
 </html>
